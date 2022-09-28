@@ -1,0 +1,103 @@
+<style>
+  .btn {
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+     /* padding: 14px 28px;  */
+    font-size: 12px;
+    cursor: pointer;
+  }
+  
+  
+  .success {
+    border-color: #04AA6D;
+    color: green;
+  }
+  
+  .success:hover {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+ 
+  .danger {
+    border-color: #f44336;
+    color: red;
+  }
+  
+  .danger:hover {
+    background: #f44336;
+    color: white;
+  }
+  
+  
+
+  </style>
+<section id="main-content">
+	<section class="wrapper">
+    <% if(flash.success.length > 0 && flash.success){%> 
+      <div class="content">
+      <div class="alert alert-success alert-white rounded">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <div class="icon"><i class="fa fa-check"></i></div>
+          <%= flash.success%>
+      </div>
+  </div>
+  <% } %>
+		<div class="table-agile-info">
+ <div class="panel panel-default">
+    <div class="panel-heading">
+   ADMIN RECORD
+    </div>
+    <div>
+      <table class="table" ui-jq="footable" ui-options='{
+        "paging": {
+          "enabled": true
+        },
+        "filtering": {
+          "enabled": true
+        },
+        "sorting": {
+          "enabled": true
+        }}'>
+        <thead>
+          <tr>
+            
+            <th> Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Gender</th>
+            <th>Hobby</th>
+            <th>City</th>
+            <th>Address</th>
+            <th>Profile</th>
+            <th>Action</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+            <%
+                for(var AD of showAdmin){%> 
+                        <tr>
+                            <td><%=AD.name%></td>
+                            <td><%=AD.email%></td>
+                            <td><%=AD.password%></td>
+                            <td><%=AD.gender%></td>
+                            <td><%=AD.hobby%></td>
+                            <td><%=AD.city%></td>
+                            <td><%=AD.address%></td>
+                            <td><img src="<%=AD.profile%>" height="40"></td>
+                            <td><a class=" btn success" href="updateAdmin/?id=<%=AD.id%>">Edit</a></td>
+                            <td><a class="btn danger" href="/removeAdmin/?id=<%=AD.id%>">Remove</a></td>
+                            <td><a class="fa fa-file-pdf-o" style="font-size:30px;color:red" href="/download"></a></td>
+                        </tr>
+                    <%}
+            %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</section>
+
+

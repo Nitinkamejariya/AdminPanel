@@ -1,0 +1,155 @@
+
+<section id="main-content">
+	<section class="wrapper">
+		<div class="form-w3layouts">
+            <!-- page start-->
+           
+            <% if(flash.success.length > 0 && flash.success){%> 
+                <div class="content">
+                <div class="alert alert-success alert-white rounded">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <div class="icon"><i class="fa fa-check"></i></div>
+                    <%= flash.success%>
+                </div>
+            </div>
+            <% } %>
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                           Add Book Detail
+                            <span class="tools pull-right">
+                                <a class="fa fa-chevron-down" href="javascript:;"></a>
+                                <a class="fa fa-cog" href="javascript:;"></a>
+                                <a class="fa fa-times" href="javascript:;"></a>
+                             </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="form">
+                                <form class="cmxform form-horizontal " id="signupForm" method="post" action="/Book/BookAdd" enctype="multipart/form-data" novalidate="novalidate">
+                                    <div class="form-group ">
+                                        <label for="firstname" class="control-label col-lg-3">Book Title</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="firstname" name="title" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="lastname" class="control-label col-lg-3">Author</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="lastname" name="author" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Publisher</label>
+                                        <div class="col-lg-6">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="inlineCheckbox1" name="publisher" value="akashic Books(Brooklyn,NY)">Akashic Books(Brooklyn,NY)
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="inlineCheckbox2" name="publisher"  value="dzanc Books(Detroit,MI)">Dzanc Books(Detroit,MI)
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="inlineCheckbox3" name="publisher" value="graywolf Press(Minneapolis)">Graywolf Press(Minneapolis)
+                                            </label>
+                
+                                        </div>
+                                    </div>
+                                    <% var Book = ['Inspiration','Horror','Thriller']%>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Book Category</label>
+                                        <div class="col-lg-6">
+                                 
+                                            <select class="form-control m-bot15" name="bookcat">
+                                                <option value="">--Select Book Category--</option>
+                                               <%
+                                                for(var i=0; i<Book.length; i++){%> 
+                                                    <option value="<%=Book[i]%>"><%=Book[i]%></option>
+                                                    <%}
+                                               %>
+                                              
+                                            </select>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="Email" class="control-label col-lg-3">Total Pages</label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control " id="username" name="pages" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label
+                                          for="cono1"
+                                          class="control-label col-lg-3"
+                                          >Description</label
+                                        >
+                                        <div class="col-sm-6">
+                                          <textarea class="form-control" name="description"></textarea>
+                                        </div>
+                                      </div>
+                                    <div class="form-group ">
+                                        <label for="password" class="control-label col-lg-3">Publishing Date</label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control " id="password" name="date" type="date">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Rating</label>
+                                        <div class="col-lg-6">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="rating" id="optionsRadios1" value="1" >
+                                               1
+                                            </label>
+                                            
+                                        
+                                       
+                                            <label>
+                                                <input type="radio" name="rating" id="optionsRadios1" value="2" >
+                                               2
+                                            </label>
+                                        
+                                            <label>
+                                                <input type="radio" name="rating" id="optionsRadios1" value="3" >
+                                               3
+                                            </label>
+                                       
+                                            <label>
+                                                <input type="radio" name="rating" id="optionsRadios1" value="4" >
+                                               4
+                                            </label>
+                                       
+                                            <label>
+                                                <input type="radio" name="rating" id="optionsRadios1" value="5" >
+                                               5
+                                            </label>
+                                        </div>
+                                        </div>
+                                    </div>
+                                  
+                                   
+                                   
+                                      <div class="form-group ">
+                                        <label for="fname" class="control-label col-lg-3">Front Image</label>
+                                        <div class="col-sm-6">
+                                          <input type="file" class="form-control" name="avatar" />
+                                        </div>
+                                      </div>
+                                    
+                                  
+
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-3 col-lg-6">
+                                            <button class="btn btn-primary"  type="submit" name="submit">Add Book</button>
+                                           
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- page end-->
+        </div>
+</section>

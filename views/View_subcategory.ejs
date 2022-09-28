@@ -1,0 +1,97 @@
+<style>
+    .btn {
+ 
+      cursor: pointer;
+     
+    }
+    
+    
+    .success {
+      border-color: #04AA6D;
+      color: green;
+    }
+    
+    .success:hover {
+      background-color: #04AA6D;
+      color: white;
+    }
+    
+   
+    .danger {
+      border-color: #f44336;
+      color: red;
+    }
+    
+    .danger:hover {
+      background: #f44336;
+      color: white;
+    }
+    
+    
+  
+    </style>
+  <section id="main-content">
+      <section class="wrapper">
+       
+      <% if(flash.success.length > 0 && flash.success){%> 
+        <div class="content">
+        <div class="alert alert-success alert-white rounded">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <div class="icon"><i class="fa fa-check"></i></div>
+            <%= flash.success%>
+        </div>
+    </div>
+    <% } %>
+          <div class="table-agile-info">
+   <div class="panel panel-default">
+      <div class="panel-heading">
+    SUB CATEGORY
+      </div>
+      <div>
+        <table class="table" ui-jq="footable" ui-options='{
+          "paging": {
+            "enabled": true
+          },
+          "filtering": {
+            "enabled": true
+          },
+          "sorting": {
+            "enabled": true
+          }}'>
+          <thead>
+            <tr>
+              
+              
+              <th data-breakpoints="xs">No</th>
+              
+              <th  data-breakpoints="xs">Category Name</th>
+              <th  data-breakpoints="xs">Sub Category Name</th>
+             
+              <th data-breakpoints="xs sm md" style="text-align: center;">Action</th>
+             
+            </tr>
+          </thead>
+          <tbody>
+              <% var i=1;
+                  for(var sc of record){%> 
+                          <tr>
+                              
+                              <td><%= i%></td>
+                              <td><%= sc.categoryId.CategoryName %></td>
+                              <td><%= sc.subcategory%></td>
+                           
+                              <td><a class=" btn success" href="updateSubCategory/?id=<%=sc.id%>">Edit</a></td>
+                              <td><a  class="btn danger" href="removeSubCategory/?id=<%=sc.id%>">Remove</a></td>
+                          </tr>
+                      <% i++;}
+              %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  </section>
+  
+  
+  

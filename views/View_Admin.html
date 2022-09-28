@@ -1,0 +1,89 @@
+<style>
+    .btn {
+      border: 1px solid black;
+      background-color: white;
+      color: black;
+       /* padding: 14px 28px;  */
+      font-size: 12px;
+      cursor: pointer;
+    }
+    
+    
+    .success {
+      border-color: #04AA6D;
+      color: green;
+    }
+    
+    .success:hover {
+      background-color: #04AA6D;
+      color: white;
+    }
+    
+   
+    .danger {
+      border-color: #f44336;
+      color: red;
+    }
+    
+    .danger:hover {
+      background: #f44336;
+      color: white;
+    }
+    
+    
+  
+    </style>
+  <section id="main-content">
+      <section class="wrapper">
+      
+          <div class="table-agile-info">
+   <div class="panel panel-default">
+      <div class="panel-heading">
+     ADMIN RECORD
+      </div>
+      <div>
+        <table class="table" ui-jq="footable" ui-options='{
+          "paging": {
+            "enabled": true
+          },
+          "filtering": {
+            "enabled": true
+          },
+          "sorting": {
+            "enabled": true
+          }}'>
+          <thead>
+            <tr>
+              
+              <th> Name</th>
+              <th>Email</th>
+              <th>Password</th>
+              <th>Gender</th>
+              <th>Hobby</th>
+              <th>City</th>
+              <th>Address</th>
+             
+              
+             
+            </tr>
+          </thead>
+          <tbody>
+          {{#each arlist.adminlist}}
+          <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.gender}}</td>
+            <td>{{this.hobby}}</td>
+            <td>{{this.city}}</td>
+            <td>{{this.address}}</td>
+          </tr>
+          {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  </section>
+  
+  
+  

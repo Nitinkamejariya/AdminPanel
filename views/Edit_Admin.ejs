@@ -1,0 +1,126 @@
+
+<section id="main-content">
+	<section class="wrapper">
+		<div class="form-w3layouts">
+            <!-- page start-->
+           
+           
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                           Update Admin Detail
+                            <span class="tools pull-right">
+                                <a class="fa fa-chevron-down" href="javascript:;"></a>
+                                <a class="fa fa-cog" href="javascript:;"></a>
+                                <a class="fa fa-times" href="javascript:;"></a>
+                             </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="form">
+                                <form class="cmxform form-horizontal " id="signupForm" method="post" action="/EditAdmin" enctype="multipart/form-data" novalidate="novalidate">
+                                    <input type="hidden" name="e_id" value="<%=record.id%>">
+                                    <div class="form-group ">
+                                        <label for="firstname" class="control-label col-lg-3">Name</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="firstname" name="name" value="<%=record.name%>" type="text">
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="form-group ">
+                                        <label for="Email" class="control-label col-lg-3">Email</label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control " id="username" name="email" value="<%=record.email%>" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="password" class="control-label col-lg-3">Password</label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control " id="password" name="password" value="<%=record.password%>" type="password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Gender</label>
+                                        <div class="col-lg-6">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="gender" id="optionsRadios1" value="male" <% if(record.gender=='male'){%> <%='checked' %> <% }%> >
+                                                Male
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="gender" id="optionsRadios1" value="female" <% if(record.gender=='female'){%> <%='checked' %> <% } %>>
+                                                Female
+                                            </label>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Hobby</label>
+                                        <div class="col-lg-6">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="inlineCheckbox1" name="hobby" value="cricket" <% if(record.hobby.includes('cricket')){%> <%='checked' %> <%} %>>Cricket
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="inlineCheckbox2" name="hobby"  value="movie" <% if(record.hobby.includes('movie')){%> <%='checked' %> <%} %>>Movie
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="inlineCheckbox3" name="hobby" value="adventure" <% if(record.hobby.includes('adventure')){%> <%='checked' %> <%} %>>Adventure
+                                            </label>
+                
+                                        </div>
+                                    </div>
+                                  
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label col-lg-3" for="inputSuccess">City</label>
+                                        <%  city = ['Surat','Navsari','Bardoli'] %>
+                                        <div class="col-lg-6">
+                                           
+                                            <select name="city" class="form-control m-bot15" >
+                                                <option value="">--Select City--</option>
+                                               <%
+                                                for(var i=0; i<city.length; i++){%> 
+                                                    <option value="<%=city[i]%>"<% if(record.city==city[i]){%> <%='selected' %> <% } %>><%=city[i]%></option>
+                                                    <%}
+                                               %>
+                                              
+                                            </select>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label
+                                          for="cono1"
+                                          class="control-label col-lg-3"
+                                          >Address</label
+                                        >
+                                        <div class="col-sm-6">
+                                          <textarea class="form-control" name="address"><%=record.address%></textarea>
+                                        </div>
+                                      </div>
+                                      <div class="form-group ">
+                                        <label for="fname" class="control-label col-lg-3">Upload Profile</label>
+                                        <div class="col-sm-6">
+                                          <input type="file" class="form-control" name="avatar" />
+                                          <img src="<%=record.profile%>" height="70">
+                                        </div>
+                                      </div>
+                                    
+                                  
+
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-3 col-lg-6">
+                                            <button class="btn btn-primary"  type="submit" name="submit">Update Admin</button>
+                                           
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- page end-->
+        </div>
+</section>

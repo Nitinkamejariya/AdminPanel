@@ -1,0 +1,95 @@
+<style>
+    .btn {
+ 
+      cursor: pointer;
+     
+    }
+    
+    
+    .success {
+      border-color: #04AA6D;
+      color: green;
+    }
+    
+    .success:hover {
+      background-color: #04AA6D;
+      color: white;
+    }
+    
+   
+    .danger {
+      border-color: #f44336;
+      color: red;
+    }
+    
+    .danger:hover {
+      background: #f44336;
+      color: white;
+    }
+    
+    
+  
+    </style>
+  <section id="main-content">
+      <section class="wrapper">
+       
+      <% if(flash.success.length > 0 && flash.success){%> 
+        <div class="content">
+        <div class="alert alert-success alert-white rounded">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <div class="icon"><i class="fa fa-check"></i></div>
+            <%= flash.success%>
+        </div>
+    </div>
+    <% } %>
+          <div class="table-agile-info">
+   <div class="panel panel-default">
+      <div class="panel-heading">
+     CATEGORY
+      </div>
+      <div>
+        <table class="table" ui-jq="footable" ui-options='{
+          "paging": {
+            "enabled": true
+          },
+          "filtering": {
+            "enabled": true
+          },
+          "sorting": {
+            "enabled": true
+          }}'>
+          <thead>
+            <tr>
+              
+              
+              <th data-breakpoints="xs">No</th>
+              
+              <th  data-breakpoints="xs">Category Name</th>
+             
+              <th data-breakpoints="xs sm md" style="text-align: center;">Action</th>
+             
+            </tr>
+          </thead>
+          <tbody>
+              <% var i=1;
+                  for(var c of showcategory){%> 
+                          <tr>
+                              
+                              <td><%= i%></td>
+                              <td><%= c.CategoryName%></td>
+                           
+                              <td><a class=" btn success" href="updateCategory/?id=<%=c.id%>">Edit</a></td>
+                              <td><a  class="btn danger" href="removeCategory/?id=<%=c.id%>">Remove</a></td>
+                          </tr>
+                      <% i++;}
+              %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  </section>
+  
+  
+  
