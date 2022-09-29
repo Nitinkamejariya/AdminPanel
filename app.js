@@ -24,8 +24,8 @@ app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
 
 app.use(session({
-    name : 'Nitin',
-    secret : 'patel',
+    name : 'abc',
+    secret : 'xyz',
     saveUninitialized : false,
     resave : false,
     cookie : {maxAge: 1000*60*100}
