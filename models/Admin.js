@@ -44,7 +44,7 @@ const AdminSchema = mongoose.Schema({
     }
  
 });
-AdminSchema.plugin(findOrCreate);
+
 
 
 
